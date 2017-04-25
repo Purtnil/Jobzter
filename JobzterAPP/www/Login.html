@@ -36,30 +36,30 @@
 
     <script type="text/javascript">
 
+        function Login() {
 
+            var email = $("#Email").val();
+            var adgangskode = $("#Adgangskode").val();
 
-        //function Login() {
+            $.ajax({
+                type: 'GET',
+                url: 'http://localhost:17821/api/App/Login/' + email + '/' + adgangskode,
+                success: function (data) {
+                    alert(email + " : " + adgangskode);
+                    if (data.ID > 0) {
+                        window.localStorage.setItem("user", data.ID);
+                        window.localStorage.setItem("level", data.Level);
+                        window.location.assign("Login.html");
+                    } else {
+                        $("#msg").html("<span class=\"alert\">Brugeren blev ikke fundet!!!</span>");
+                    }
 
-        //    var pas = $("#pass").val();
-        //    var bruger = $("#bruger").val();
-
-        //    $.ajax({
-        //        type: 'GET',
-        //        url: 'http://www.dykkerspots.dk/api/Login/' + bruger + '/' + pas,
-        //        success: function (data) {
-        //            if (data.ID > 0) {
-        //                window.localStorage.setItem("user", data.ID);
-        //                window.localStorage.setItem("level", data.Level);
-        //                window.location.assign("Login.html");
-        //            } else {
-        //                $("#msg").html("<span class=\"alert\">Brugeren blev ikke fundet!!!</span>");
-
-
-        //            }
-        //        }
-        //    });
-        //}
-
+                },
+                error: function(data) {
+                    alert("Det duer ikke!");
+                }
+            });
+        } 
 
 
         $(function () {
@@ -83,32 +83,34 @@
         <div class="row">
             <div class="col-sm-12">
 
-                <img src="GFX/JobLogo.png" class="img-responsive center Logo" />
+                <img src="GFX/JobLogo.png" class="img-responsive center Logo"/>
 
             </div>
         </div>
-        <div id="loginForm" class="row">
-            <div class="col-xs-12 col-xs-offset-0 col-sm-10 col-sm-offset-1 cont">
-                <span id="msg"></span>
-                <form onsubmit="return Login(), false;">
-                    <input id="bruger" class="form-control input-style" type="text" placeholder="E-mail">
+        <form onsubmit="return Login(), false;">
+            <div id="loginForm" class="row">
+                <div class="col-xs-12 col-xs-offset-0 col-sm-10 col-sm-offset-1 cont">
+                    <span id="msg"></span>
+
+                    <input id="Email" class="form-control input-style" type="text" placeholder="E-mail">
                     <br />
-                    <input id="pass" class="form-control input-style" type="password" placeholder="Adgangskode">
+                    <input id="Adgangskode" class="form-control input-style" type="password" placeholder="Adgangskode">
                     <br />
 
 
-                </form>
 
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2">
+                    <input class="button pull-left" type="submit" value="Glemt adgangskode" />
+                    <input id="subBut" class="button pull-right" type="submit" value="Log ind" />
+                </div>
 
             </div>
-        </div>
-        <div class="row">
-            <div class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2">
-                <input class="button pull-left" type="submit" value="Glemt adgangskode" />
-                <input id="subBut" class="button pull-right" type="submit" value="Log ind" />
-            </div>
+        </form>
 
-        </div>
         <div class="container-fluid">
             <div class="row">
                 <div class="col-xs-offset-0 col-xs-12 col-sm-10 col-sm-offset-1">
