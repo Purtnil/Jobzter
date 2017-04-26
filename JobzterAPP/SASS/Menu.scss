@@ -1,0 +1,63 @@
+﻿@import 'Shared.scss';
+
+#cont nav {
+    color: gray;
+    position: fixed;
+}
+
+.fa-angle-left, .fa-bars {
+    color: white;
+}
+
+#cont header {
+    background-color: $mainColor;
+    height: 55px;
+}
+
+#cont header a {
+    background-color: $mainColor;
+    border-color: transparent;
+}
+
+#cont header h1 {
+    visibility: hidden;
+}
+
+#cont a {
+    color: gray;
+    font-weight: normal;
+}
+
+#cont ul li .icons {
+    margin-right: 20%;
+    color: lightgray;
+}
+
+#cont nav ul li {
+    margin-bottom: 10%;
+}
+
+#cont nav ul .botIcons {
+    margin-left: 25%;
+    color: lightgray;
+}
+
+.navProfil {
+    width: 100%;
+}
+
+nav ul {
+    list-style-type: none;
+    margin-top: 10%;
+    padding-left: 6%;
+}
+
+.profilPic {
+    max-width: 150px;
+    box-shadow: 0px 0px 10px black;
+    margin-bottom:10%;
+}
+.badge{
+    background-color:$mainColor;
+    margin-right:18%;
+}

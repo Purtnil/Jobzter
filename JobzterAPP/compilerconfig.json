@@ -6,5 +6,13 @@
   {
     "outputFile": "www/css/Shared.css",
     "inputFile": "SASS/Shared.scss"
+  },
+  {
+    "outputFile": "www/css/jQueryMobileSwipe.css",
+    "inputFile": "SASS/jQueryMobileSwipe.scss"
+  },
+  {
+    "outputFile": "www/css/Menu.css",
+    "inputFile": "SASS/Menu.scss"
   }
 ]
