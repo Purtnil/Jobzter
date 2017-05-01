@@ -53,29 +53,6 @@
         function hideSplash() {
             $.mobile.changePage("#pageLog", "fade");
         }
-
-        function Email(email) {
-            this.Email = email;
-        }
-
-        function PostTest() {
-            var email = $("#Email").val();
-            $.ajax({
-                type: 'Post',
-                url: 'http://localhost:17821/api/App/PostTest',
-                contentType: 'application/json; charset=utf-8',
-                dataType: "json",
-                data: JSON.stringify(e),
-                success: function (data) {
-
-
-                },
-                error: function (data) {
-                    alert("PostTest() - Det duer ikke!");
-                }
-            });
-        }
-
             function Login() {
                 var email = $("#Email").val();
                 var adgangskode = $("#Adgangskode").val();
@@ -83,14 +60,13 @@
                 $.ajax({
                     type: 'GET',
                     url: 'http://localhost:17821/api/App/Login/' + email + '/' + adgangskode,
-                    success: function (data) {
-                        alert(email + " : " + adgangskode);
+                    success: function (data) {  
                         if (data.ID > 0) {
                             window.localStorage.setItem("user", data.ID);
                             window.localStorage.setItem("level", data.Level);
                             window.location.assign("LoginSuccess.html");
                         } else {
-                            $("#msg").html("<span class=\"alert\">Brugeren blev ikke fundet!!!</span>");
+                            $("#msg").html("<span class=\"alert\">Email eller adgangskode passer ikke</span>");
                         }
 
                     },
@@ -102,13 +78,12 @@
 
             function GlemtAdg() {
                 var email = $("#GlemEmail").val();
-                alert(email);
                 $.ajax({
                     type: 'Post',
-                    url: 'http://localhost:17821/api/App/GlemtAdg/' + email,
+                    url: 'http://localhost:17821/api/App/GlemtAdg/' + email + '/',//Remember Trailing slash/ on url when Post
                     success: function (data) {
-                  
-
+                        alert(data);
+                        window.location.assign("index.html");
                     },
                     error: function (data) {
                         alert("GlemtAdg() - Det duer ikke!");
@@ -119,17 +94,19 @@
 
 
             $(function () {
-
+                console.log(window.localStorage.getItem("user"));
                 if (window.localStorage.getItem("user") !== null) {
-                    $("#loginForm").hide();
-                    $("#logudForm").show();
+                    window.location.assign("LoginSuccess.html");
+                    //$("#loginForm").hide();
+                    //$("#logudForm").show();
                 } else {
-                    $("#logudForm").hide();
+                    //$("#logudForm").hide();
                     $("#loginForm").show();
                 }
 
             });
     </script>
+
 </head>
 
 <body>
@@ -167,7 +144,6 @@
                     </div>
                     <span id="msg"></span>
                     <input data-role="none" id="subBut" class="button center-block loginBut" type="submit" value="Log ind" />
-                    <button onclick="PostTest()">Klik her</button>
                 </form>
             </div>
         </div>
@@ -222,13 +198,13 @@
     </div>
 
 
-    <div id="logudForm" class="row">
+    <!--<div id="logudForm" class="row">
         <div class="col-sm-12  cont text-center">
 
             <button class="button" type="submit" onclick="navigate('Logud',0);">Logud</button>
 
         </div>
-    </div>
+    </div>-->
 
 
 
