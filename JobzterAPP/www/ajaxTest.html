@@ -8,23 +8,30 @@
     <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
 </head>
 <body>
-    <select>
+    <!--<select id="udtype">
+        <option value="0" disabled selected> - vælg uddannelsestype</option>
+    </select>-->
+
+    <select id="kategori" onchange="GetErfType(value)">
         <option value="0" disabled selected> - vælg kategori</option>
     </select>
 
+    <select id="underKategori">
+        <option value="0" disabled selected> - vælg underkategori</option>
+    </select>
 
 
 
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script>
+
         $.ajax({
             type: 'Get',
-            url: 'http://localhost:17821/api/App/GetErfKat/',
+            url: 'http://localhost:17821/api/App/GetUdtype/',
             success: function (data) {
-                $.each(data, function (i, ErfKat) {
-                    $('select').append('<option value="' + ErfKat.ID + '">' + ErfKat.Navn + '</option>');
-                    console.log(ErfKat.Navn + ' : ' + ErfKat.Beskrivelse);
+                $.each(data, function (i, Udtype) {
+                    $('select#udtype').append('<option value="' + Udtype.ID + '">' + Udtype.Navn + '</option>');
                 });
             },
             error: function (data) {
@@ -32,19 +39,37 @@
             }
         });
 
+        $.ajax({
+            type: 'Get',
+            url: 'http://localhost:17821/api/App/GetErfKat/',
+            success: function (data) {
+                $.each(data, function (i, ErfKat) {
+                    $('select#kategori').append('<option value="' + ErfKat.ID + '">' + ErfKat.Navn + '</option>');
+                    //console.log(ErfKat.Navn + ' : ' + ErfKat.Beskrivelse);
+                });
+            },
+            error: function (data) {
+                alert("GetErfKat() - Det duer ikke!");
+            }
+        });
 
-        //$.ajax({
-        //    type: 'Get',
-        //    url: 'http://localhost:17821/api/App/GetErfType/',
-        //    success: function (data) {
-        //        $.each(data, function (i, ErfatingType) {
-        //            console.log(ErfatingType.Navn + ' : ' + ErfatingType.Beskrivelse);
-        //        });
-        //    },
-        //    error: function (data) {
-        //        alert("GetErfType() - Det duer ikke!");
-        //    }
-        //});
+        function GetErfType(id) {
+            $.ajax({
+                type: 'Get',
+                url: 'http://localhost:17821/api/App/GetErfType/' + id + '/',
+                success: function (data) {
+                    $('select#underKategori').empty();
+                    $.each(data, function (i, ErfatingType) {
+
+                        $('select#underKategori').append('<option value="' + ErfatingType.ID + '">' + ErfatingType.Navn + '</option>');
+                       // console.log(ErfatingType.Navn + ' : ' + ErfatingType.Beskrivelse);
+                    });
+                },
+                error: function (data) {
+                    alert("GetErfType() - Det duer ikke!");
+                }
+            });
+       }
     </script>
 </body>
 </html>

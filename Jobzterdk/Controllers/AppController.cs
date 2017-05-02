@@ -15,6 +15,7 @@ namespace Jobzterdk.Controllers
         BrugerFac brF = new BrugerFac();
         ErfaringtypeFac ertF = new ErfaringtypeFac();
         ErfaringKatFac erkF = new ErfaringKatFac();
+        UdtypeFac udF = new UdtypeFac();
 
         Mail m = new Mail("smtp.gmail.com", "webitsven1106@gmail.com", "webitsven1106", "tw5mc7z8vc", 587); //ændre til Jobzter Email
 
@@ -49,13 +50,12 @@ namespace Jobzterdk.Controllers
             }
         }
 
-        [Route("api/App/GetErfType")]
+        [Route("api/App/GetUdtype")]
         [HttpGet]
-        public IEnumerable<Erfaringtype> GetErfType()
+        public IEnumerable<Udtype> GetUdtype()
         {
-            return ertF.GetAll();
+            return udF.GetAll();
         }
-
 
         [Route("api/App/GetErfKat")]
         [HttpGet]
@@ -63,5 +63,14 @@ namespace Jobzterdk.Controllers
         {
             return erkF.GetAll();
         }
+
+        [Route("api/App/GetErfType/{id}")]
+        [HttpGet]
+        public IEnumerable<Erfaringtype> GetErfType(int id)
+        {
+
+            return ertF.GetBy("ErKatID", id);
+        }
+
     }
 }

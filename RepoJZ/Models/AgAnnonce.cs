@@ -11,7 +11,6 @@ namespace RepoJZ
     {
         public int ID { get; set; }
         public int AgID { get; set; }
-        public string KortBesk { get; set; }
         public string LBeskrivelse { get; set; }
         public int ErfaringtypeID { get; set; }
         public DateTime Dato { get; set; }
