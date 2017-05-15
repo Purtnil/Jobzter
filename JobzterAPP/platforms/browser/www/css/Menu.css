@@ -11,23 +11,46 @@
 .text-right {
   text-align: right; }
 
+.font {
+  font-family: 'Roboto', Verdana, sans-serif; }
+
 #cont nav {
   color: gray;
   position: fixed; }
 
-.fa-angle-left, .fa-bars {
-  color: white; }
+.ui-panel-wrapper .ui-header {
+  border: 1px;
+  background: -webkit-linear-gradient(top, #ff4b00 0%, #ff4b00 49%, #ff4b00 50%, #c92a29 100%);
+  border-color: rgba(255, 255, 255, 0); }
 
-#cont header {
+#pageOpret header {
+  border: 1px;
+  background-color: rgba(255, 255, 255, 0);
+  border-color: rgba(255, 255, 255, 0); }
+
+.ui-header .ui-title {
+  padding: .4em 0; }
+
+.fa-bars, .fa-sliders {
+  color: whitesmoke; }
+
+.fa-angle-left {
+  color: #ff4b00;
+  font-weight: lighter; }
+
+#cont .demo-page header {
   background-color: #ff4b00;
-  height: 55px; }
+  min-height: 55px; }
+
+#cont .demo-page .opretBruger {
+  background-color: rgba(255, 255, 255, 0); }
 
 #cont header a {
-  background-color: #ff4b00;
-  border-color: transparent; }
+  border-color: rgba(255, 255, 255, 0); }
 
-#cont header h1 {
-  visibility: hidden; }
+.container-fluid {
+  padding-right: 0;
+  padding-left: 0; }
 
 #cont a {
   color: gray;
@@ -60,4 +83,16 @@ nav ul {
 .badge {
   background-color: #ff4b00;
   margin-right: 18%; }
+
+header img {
+  padding-top: 6%; }
+
+/*@media (min-height:479px) and (max-height:569) {
+    #cont nav .navProfil .profilPic{
+        max-width:100px!important;
+    }
+}*/
+@media screen and (min-height: 479px) {
+  .profilPic {
+    max-width: 100px !important; } }
 
