@@ -6,10 +6,7 @@ using System.Threading.Tasks;
 
 namespace RepoJZ
 {
-    public class Udtype
+    public class CVSprogFac : AutoFac<CVSprog>
     {
-        public int ID { get; set; }
-        public string Navn { get; set; }
-        public int UdkatID { get; set; }
     }
 }

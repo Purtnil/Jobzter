@@ -12,7 +12,7 @@ namespace RepoJZ
         public int ID { get; set; }
         public int AgID { get; set; }
         public string LBeskrivelse { get; set; }
-        public int ErfaringtypeID { get; set; }
+        public int ErhvervtypeID { get; set; }
         public DateTime Dato { get; set; }
         public int Timer { get; set; }
         public int AlderID { get; set; }

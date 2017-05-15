@@ -6,10 +6,9 @@ using System.Threading.Tasks;
 
 namespace RepoJZ
 {
-    public class Sproget
+    public class ErhvervKatVM
     {
-        public int ID { get; set; }
-        public string Navn { get; set; }
-
+        public List<Erhvervtype> Erhvervtype { get; set; }
+        public ErhvervKat ErhvervKat { get; set; }
     }
 }

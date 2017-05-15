@@ -13,9 +13,13 @@ namespace Jobzterdk.Controllers
     public class AppController : ApiController
     {
         BrugerFac brF = new BrugerFac();
-        ErfaringtypeFac ertF = new ErfaringtypeFac();
-        ErfaringKatFac erkF = new ErfaringKatFac();
-        UdtypeFac udF = new UdtypeFac();
+        ErhvervtypeFac ertF = new ErhvervtypeFac();
+        ErhvervKatFac erkF = new ErhvervKatFac();
+        JobtypeFac joF = new JobtypeFac();
+        UdtypeFac udtF = new UdtypeFac();
+        UdkatFac udkF = new UdkatFac();
+        SprogFac spF = new SprogFac();
+
 
         Mail m = new Mail("smtp.gmail.com", "webitsven1106@gmail.com", "webitsven1106", "tw5mc7z8vc", 587); //ændre til Jobzter Email
 
@@ -50,23 +54,76 @@ namespace Jobzterdk.Controllers
             }
         }
 
-        [Route("api/App/GetUdtype")]
+        [Route("api/App/GetUdkat/")]
         [HttpGet]
-        public IEnumerable<Udtype> GetUdtype()
+        public IEnumerable<UdtypeVM> GetUdkat()
         {
-            return udF.GetAll();
+
+            List<UdtypeVM> list = new List<UdtypeVM>();
+            foreach(var t in udkF.GetAll())
+            {
+                UdtypeVM udVM = new UdtypeVM();
+                udVM.Udkat = udkF.Get(t.ID);
+                udVM.Udtype = udtF.GetBy("UdkatID", t.ID);
+                udVM.Count = udtF.Countid(t.ID);
+                list.Add(udVM);
+            }
+            
+            return (IEnumerable<UdtypeVM>)list; 
         }
+
+
+        [Route("api/App/GetErhverv/")]
+        [HttpGet]
+        public IEnumerable<ErhvervKatVM> GetErhverv()
+        {
+
+            List<ErhvervKatVM> list = new List<ErhvervKatVM>();
+            foreach (var t in erkF.GetAll())
+            {
+                ErhvervKatVM erVM = new ErhvervKatVM();
+                erVM.ErhvervKat = erkF.Get(t.ID);
+                erVM.Erhvervtype = ertF.GetBy("ErKatID", t.ID);
+
+                list.Add(erVM);
+            }
+
+            return (IEnumerable<ErhvervKatVM>)list;
+        }
+
+
+
+
+        [Route("api/App/GetSprog")]
+        [HttpGet]
+        public IEnumerable<Sprog> GetSprog()
+        {
+            return spF.GetAll();
+        }
+
+
+        [Route("api/App/GetJobtype")]
+        [HttpGet]
+        public IEnumerable<Jobtype> GetJobtype()
+        {
+            return joF.GetAll();
+        }
+
+
+
+
+
 
         [Route("api/App/GetErfKat")]
         [HttpGet]
-        public IEnumerable<ErfaringKat> GetErfKat()
+        public IEnumerable<ErhvervKat> GetErfKat()
         {
             return erkF.GetAll();
         }
 
         [Route("api/App/GetErfType/{id}")]
         [HttpGet]
-        public IEnumerable<Erfaringtype> GetErfType(int id)
+        public IEnumerable<Erhvervtype> GetErfType(int id)
         {
 
             return ertF.GetBy("ErKatID", id);

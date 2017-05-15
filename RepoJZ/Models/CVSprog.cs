@@ -6,11 +6,10 @@ using System.Threading.Tasks;
 
 namespace RepoJZ
 {
-    public class Erfaringtype
+    public class CVSprog
     {
         public int ID { get; set; }
-        public int ErKatID { get; set; }
-        public string Navn { get; set; }
-        public string Beskrivelse { get; set; }
+        public int CVID { get; set; }
+        public int SprogID { get; set; }
     }
 }
