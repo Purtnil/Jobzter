@@ -44,6 +44,8 @@
     <link href="css/Menu.min.css" rel="stylesheet" />
     <script src="jQueryMobile/jQueryMobileSwipe.js"></script>
     <link href="css/jQueryMobileSwipe.min.css" rel="stylesheet" />
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
     <script type="text/javascript">
 
         $(function () {
@@ -55,29 +57,6 @@
         }
 
 
-
-
-        //function Login() {
-
-        //    var pas = $("#pass").val();
-        //    var bruger = $("#bruger").val();
-
-        //    $.ajax({
-        //        type: 'GET',
-        //        url: 'http://www.dykkerspots.dk/api/Login/' + bruger + '/' + pas,
-        //        success: function (data) {
-        //            if (data.ID > 0) {
-        //                window.localStorage.setItem("user", data.ID);
-        //                window.localStorage.setItem("level", data.Level);
-        //                window.location.assign("Login.html");
-        //            } else {
-        //                $("#msg").html("<span class=\"alert\">Brugeren blev ikke fundet!!!</span>");
-
-
-        //            }
-        //        }
-        //    });
-        //}
 
 
 
@@ -96,108 +75,103 @@
 </head>
 
 <body>
-
-    <div data-role="page" data-theme="b" id="splash">
-        <div class="splash">
-            <img src="GFX/whiteLogo.png" class="img-responsive center"  alt="splash" />
-
-        </div>
-    </div>
-    <div class="container-fluid demo-page" data-role="page" id="pageLog" data-dom-cache="true" data-next="OpretBruger">
-        <div class="row">
-
-
-            <img src="GFX/JobLogo.png" class="img-responsive center Logo" />
-
-        </div>
-        <div id="loginForm" class="row">
-            <div class="col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-3 cont">
-
-                <form onsubmit="return Login(), false;">
-                    <!--<input data-role="none" id="bruger" class="form-control input-style" type="text" placeholder="E-mail">
-                    <br />
-                    <input data-role="none" id="pass" class="form-control input-style" type="password" placeholder="Adgangskode">
-                    <br />-->
-                    <div class="group">
-                        <input data-role="none" type="text" id="Email" required>
-                        <span class="bar"></span>
-                        <label>Email</label>
-                    </div>
-                    <div class="group">
-                        <input data-role="none" type="password" id="password" required>
-                        <span class="bar"></span>
-                        <label>Adgangskode</label>
-                    </div>
-                    <span id="msg"></span>
-                </form>
-
+    <div id="cont">
+        <div data-role="page" data-theme="b" id="splash">
+            <div class="splash">
+                <img src="GFX/whiteLogo.png" class="img-responsive center" alt="splash" />
 
             </div>
         </div>
-        <div class="row">
-            <div class="col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-3">
-                <!--<a href="GlemtAdgang" data-role="none" class="pull-left button">Glemt adgangskode</a>
-                <input data-role="none" id="subBut" class="pull-right button" type="submit" value="Log ind" />-->
+        <div class="container-fluid demo-page" data-role="page" id="pageLog" data-dom-cache="true" data-next="OpretBruger">
+            <div class="row">
 
-                <input data-role="none" id="subBut" class="button center-block loginBut" type="submit" value="Log ind" />
+
+                <img src="GFX/JobLogo.png" class="img-responsive center Logo" />
+
             </div>
-        </div>
-        <div class="row">
+            <div id="loginForm" class="row">
+                <div class="col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-3 cont">
 
+                    <form onsubmit="return Login(), false;">
 
-            <div class="col-xs-12 col-xs-offset-0 col-sm-10 col-sm-offset-1">
-                <div data-role="none">
-                    <a href="#GlemtAdgangskode" class="button center-block glemtAdgangs text-center" data-rel="popup" data-role="none" data-position-to="window" data-transition="slideup">Glemt adgangskode</a>
-
-                    <div data-role="popup" data-overlay-theme="b" id="GlemtAdgangskode">
-                        <div data-role="none">
-                            <a href="#" style="border-bottom:none;" class="ui-btn ui-corner-all ui-icon-delete ui-btn-icon-notext ui-btn-right" data-rel="back">Close</a><br /><br />
+                        <div class="group">
+                            <input data-role="none" type="text" id="Email" required>
+                            <span class="bar"></span>
+                            <label>Email</label>
                         </div>
+                        <div class="group">
+                            <input data-role="none" type="password" id="password" required>
+                            <span class="bar"></span>
+                            <label>Adgangskode</label>
+                        </div>
+                        <span id="msg"></span>
+                    </form>
 
-                        <div style="min-height:150px;" data-role="main">
-                            <div class="glemtPopup center">
-                                <p class="text-center center-block">Indtast din e-mail, så får du tilsendt en ny kode</p>
-                                <div class="group">
-                                    <input data-role="none" type="text" id="Email" required>
-                                    <span class="bar"></span>
-                                    <label>Email</label>
-                                </div>
-                                <input type="submit" class="loginBut" data-role="none" value="Send ny adgangskode" />
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-3">
+                    <input data-role="none" id="subBut" class="button center-block loginBut" type="submit" value="Log ind" />
+                </div>
+            </div>
+            <div class="row">
+
+
+                <div class="col-xs-12 col-xs-offset-0 col-sm-10 col-sm-offset-1">
+                    <div data-role="none">
+                        <a href="#GlemtAdgangskode" class="button center-block glemtAdgangs text-center" data-rel="popup" data-role="none" data-position-to="window" data-transition="slideup">Glemt adgangskode</a>
+
+                        <div data-role="popup" data-overlay-theme="b" id="GlemtAdgangskode">
+                            <div data-role="none">
+                                <a href="#" style="border-bottom:none;" class="ui-btn ui-corner-all ui-icon-delete ui-btn-icon-notext ui-btn-right" data-rel="back">Close</a><br /><br />
                             </div>
+
+                            <div class="glemtDialog" data-role="main">
+                                <div class="glemtPopup center">
+                                    <p class="text-center center-block">Indtast din e-mail, så får du tilsendt en ny kode</p>
+                                    <div class="group">
+                                        <input data-role="none" type="text" id="Email" required>
+                                        <span class="bar"></span>
+                                        <label>Email</label>
+                                    </div>
+                                    <input type="submit" class="loginBut" data-role="none" value="Send ny adgangskode" />
+                                </div>
+                            </div>
+
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <div class="row">
-            <div class="col-xs-offset-0 col-xs-12 col-sm-10 col-sm-offset-1">
-                <h6><span>Eller</span></h6>
+            <div class="row">
+                <div class="col-xs-offset-2 col-xs-8 col-sm-10 col-sm-offset-1">
+                    <h6><span>Eller</span></h6>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-offset-1 col-xs-10 col-sm-10 col-sm-offset-1">
+                    <img src="GFX/loginwithF.png" class="img-responsive center FBlogin" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 col-xs-offset-0 col-sm-10 col-sm-offset-1">
+
+                    <a href="OpretBruger.html" class="center-block text-center" data-transition="slide">Tilmed dig nu</a>
+
+                </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-xs-offset-1 col-xs-10 col-sm-10 col-sm-offset-1">
-                <img src="GFX/loginwithF.png" class="img-responsive center FBlogin" />
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-xs-12 col-xs-offset-0 col-sm-10 col-sm-offset-1">
 
-                <a href="OpretBruger.html" class="center-block text-center" data-transition="slide">Tilmed dig nu</a>
+
+        <div id="logudForm" class="row">
+            <div class="col-sm-12  cont text-center">
+
+                <button class="button" type="submit" onclick="navigate('Logud',0);">Logud</button>
 
             </div>
         </div>
     </div>
-
-
-    <div id="logudForm" class="row">
-        <div class="col-sm-12  cont text-center">
-
-            <button class="button" type="submit" onclick="navigate('Logud',0);">Logud</button>
-
-        </div>
-    </div>
-
 
 
     <!--<script type="text/javascript" src="cordova.js"></script>-->
