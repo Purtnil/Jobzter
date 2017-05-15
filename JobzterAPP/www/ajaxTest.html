@@ -8,7 +8,7 @@
     <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
 </head>
 <body>
-    <!--<form id="uddannelse">
+    <form id="uddannelse">
         <h2>Vælg kategori</h2>
         <div id="folkeskole">
             <h3>Folkeskole</h3>
@@ -24,7 +24,7 @@
         </div>
         <br />
         <input type="submit" value="Vælg" />
-    </form>-->
+    </form>
     <!--<form >
         <h2>Vælg kategori</h2>
         <div id="kategori">
@@ -32,9 +32,9 @@
         <br />
         <input type="submit" value="Vælg" />
     </form>-->
-    <!--<form onsubmit="Bruger()">
+    <!--<form onsubmit="return Bruger(), false">
         <div class="group">
-            <input data-role="none" type="file" id="Pb" accept="image/*" >
+            <input data-role="none" type="file" id="Pb" accept="image/*">
         </div>
         <div class="group">
             <input data-role="none" type="text" id="Fornavn" required>
@@ -91,18 +91,17 @@
             <label>Adgangskode</label>
         </div>
 
-        <input type="submit" value="Gem"/>
+        <input type="submit" value="Gem" />
     </form>-->
 
-    <form>
+    <!--<form>
         <h4>Vælg jobtype</h4>
         <div id="jobtype">
 
         </div>
         <br />
         <input type="submit" value="Vælg" />
-    </form>
-
+    </form>-->
     <!--<form id="sprog">
         <h4>Vælg sprog</h4>
         <select id="andre-sprog">
@@ -114,23 +113,31 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script>
+        var fornavn;
+        var efternavn;
+        var email;
+        var postnr;
+        var sted;
+        var vejnavn;
+        var fodselsdag;
+        var kon;
+        var tlf;
+        var adgangskode;
         function Bruger() {
-
-            //var pb = $("#Pb").val().replace(/\s/g, ""); //.replace(/\s/g,''); er den hurtigste måde at erstatte alle spaces.
-            var fornavn = $("#Fornavn").val().replace(/\s/g, "");
-            var efternavn = $("#Efternavn").val().replace(/\s/g, "");
-            //var email = $("#Email").val().replace(/\s/g, "");
-            //var postnr = $("#Postnr").val().replace(/\s/g, "");
-            //var sted = $("#Sted").val().replace(/\s/g, "");
-            //var vejnavn = $("#Vejnavn").val().replace(/\s/g, "");
-            //var fodselsdag = $("#Fodselsdag").val().replace(/\s/g, "");
-            //var kon = $("#Kon").val().replace(/\s/g, "");
-            //var tlf = $("#Tlf").val().replace(/\s/g, "");
-            //var adgangskode = $("#Adgangskode").val().replace(/\s/g, "");
-            alert(fornavn);
-
+            //pb = $("#Pb").val().replace(/\s/g, ""); //.replace(/\s/g,''); er den hurtigste måde at erstatte alle spaces.
+            fornavn = $("#Fornavn").val().replace(/\s/g, "");
+            efternavn = $("#Efternavn").val().replace(/\s/g, "");
+            //email = $("#Email").val().replace(/\s/g, "");
+            //postnr = $("#Postnr").val().replace(/\s/g, "");
+            //sted = $("#Sted").val().replace(/\s/g, "");
+            //vejnavn = $("#Vejnavn").val().replace(/\s/g, "");
+            //fodselsdag = $("#Fodselsdag").val().replace(/\s/g, "");
+            //kon = $("#Kon").val().replace(/\s/g, "");
+            //tlf = $("#Tlf").val().replace(/\s/g, "");
+            //adgangskode = $("#Adgangskode").val().replace(/\s/g, "");
+            //Arr = [pb, fornavn, efternavn, email, postnr, sted, vejnavn, fodselsdag, kon, tlf, adgangskode]
+            //console.log(Arr);
         }
-
         //function BrugerModel(pb, fornavn, efternavn, email, postnr, sted, vejnavn, fodselsdag, kon, tlf, adgangskode) { // modellen der bliver postet til webAPI'en
         //    this.pb = pb;
         //    this.fornavn = fornavn;
