@@ -53,57 +53,71 @@
         function hideSplash() {
             $.mobile.changePage("#pageLog", "fade");
         }
+            function Login() {
+                var email = $("#Email").val();
+                var adgangskode = $("#Adgangskode").val();
 
+                $.ajax({
+                    type: 'GET',
+                    url: 'http://localhost:17821/api/App/Login/' + email + '/' + adgangskode,
+                    success: function (data) {  
+                        if (data.ID > 0) {
+                            window.localStorage.setItem("user", data.ID);
+                            window.localStorage.setItem("level", data.Level);
+                            window.location.assign("LoginSuccess.html");
+                        } else {
+                            $("#msg").html("<span class=\"alert\">Email eller adgangskode passer ikke</span>");
+                        }
 
-
-
-        //function Login() {
-
-        //    var pas = $("#pass").val();
-        //    var bruger = $("#bruger").val();
-
-        //    $.ajax({
-        //        type: 'GET',
-        //        url: 'http://www.dykkerspots.dk/api/Login/' + bruger + '/' + pas,
-        //        success: function (data) {
-        //            if (data.ID > 0) {
-        //                window.localStorage.setItem("user", data.ID);
-        //                window.localStorage.setItem("level", data.Level);
-        //                window.location.assign("Login.html");
-        //            } else {
-        //                $("#msg").html("<span class=\"alert\">Brugeren blev ikke fundet!!!</span>");
-
-
-        //            }
-        //        }
-        //    });
-        //}
-
-
-
-        $(function () {
-
-            if (window.localStorage.getItem("user") !== null) {
-                $("#loginForm").hide();
-                $("#logudForm").show();
-            } else {
-                $("#logudForm").hide();
-                $("#loginForm").show();
+                    },
+                    error: function (data) {
+                        alert("Login() - Det duer ikke!");
+                    }
+                });
             }
 
-        });
+            function GlemtAdg() {
+                var email = $("#GlemEmail").val();
+                $.ajax({
+                    type: 'Post',
+                    url: 'http://localhost:17821/api/App/GlemtAdg/' + email + '/',//Remember Trailing slash/ on url when Post
+                    success: function (data) {
+                        alert(data);
+                        window.location.assign("index.html");
+                    },
+                    error: function (data) {
+                        alert("GlemtAdg() - Det duer ikke!");
+                    }
+                });
+            }
+
+
+
+            $(function () {
+                console.log(window.localStorage.getItem("user"));
+                if (window.localStorage.getItem("user") !== null) {
+                    window.location.assign("LoginSuccess.html");
+                    //$("#loginForm").hide();
+                    //$("#logudForm").show();
+                } else {
+                    //$("#logudForm").hide();
+                    $("#loginForm").show();
+                }
+
+            });
     </script>
+
 </head>
 
 <body>
 
-    <div data-role="page" data-theme="b" id="splash">
+    <!--<div data-role="page" data-theme="b" id="splash">
         <div class="splash">
             <img src="GFX/whiteLogo.png" class="img-responsive center"  alt="splash" />
 
         </div>
-    </div>
-    <div class="container-fluid demo-page" data-role="page" id="pageLog" data-dom-cache="true" data-next="OpretBruger">
+    </div>-->
+    <div class="container-fluid demo-page" data-role="page" id="pageLog" data-dom-cache="true">
         <div class="row">
 
 
@@ -124,22 +138,13 @@
                         <label>Email</label>
                     </div>
                     <div class="group">
-                        <input data-role="none" type="password" id="password" required>
+                        <input data-role="none" type="password" id="Adgangskode" required>
                         <span class="bar"></span>
                         <label>Adgangskode</label>
                     </div>
                     <span id="msg"></span>
+                    <input data-role="none" id="subBut" class="button center-block loginBut" type="submit" value="Log ind" />
                 </form>
-
-
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-3">
-                <!--<a href="GlemtAdgang" data-role="none" class="pull-left button">Glemt adgangskode</a>
-                <input data-role="none" id="subBut" class="pull-right button" type="submit" value="Log ind" />-->
-
-                <input data-role="none" id="subBut" class="button center-block loginBut" type="submit" value="Log ind" />
             </div>
         </div>
         <div class="row">
@@ -156,13 +161,16 @@
 
                         <div style="min-height:150px;" data-role="main">
                             <div class="glemtPopup center">
-                                <p class="text-center center-block">Indtast din e-mail, så får du tilsendt en ny kode</p>
-                                <div class="group">
-                                    <input data-role="none" type="text" id="Email" required>
-                                    <span class="bar"></span>
-                                    <label>Email</label>
-                                </div>
-                                <input type="submit" class="loginBut" data-role="none" value="Send ny adgangskode" />
+                                <form onsubmit="return GlemtAdg(), false;">
+
+                                    <p class="text-center center-block">Indtast din e-mail, så får du tilsendt en ny kode</p>
+                                    <div class="group">
+                                        <input data-role="none" type="text" id="GlemEmail" required>
+                                        <span class="bar"></span>
+                                        <label>Email</label>
+                                    </div>
+                                    <input type="submit" class="loginBut" data-role="none" value="Send ny adgangskode" />
+                                </form>
                             </div>
                         </div>
                     </div>
@@ -190,13 +198,13 @@
     </div>
 
 
-    <div id="logudForm" class="row">
+    <!--<div id="logudForm" class="row">
         <div class="col-sm-12  cont text-center">
 
             <button class="button" type="submit" onclick="navigate('Logud',0);">Logud</button>
 
         </div>
-    </div>
+    </div>-->
 
 
 
@@ -206,11 +214,5 @@
         app.initialize();
     </script>
 </body>
-
-
-
-
-
-
 
 </html>

@@ -43,7 +43,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
     <Compile Include="DDMF_Light\AutoFac.cs" />
     <Compile Include="DDMF_Light\Conn.cs" />
     <Compile Include="DDMF_Light\Mapper.cs" />
@@ -63,9 +62,10 @@
     <Compile Include="Factories\JobsFac.cs" />
     <Compile Include="Factories\JobtypeFac.cs" />
     <Compile Include="Factories\KompetencerFac.cs" />
-    <Compile Include="Factories\SprogetFac.cs" />
     <Compile Include="Factories\SprogFac.cs" />
+    <Compile Include="Factories\CVSprogFac.cs" />
     <Compile Include="Factories\UddannelseFac.cs" />
+    <Compile Include="Factories\UdkatFac.cs" />
     <Compile Include="Factories\UdtypeFac.cs" />
     <Compile Include="Models\AgAlder.cs" />
     <Compile Include="Models\AgAnnonce.cs" />
@@ -78,15 +78,18 @@
     <Compile Include="Models\Bruger.cs" />
     <Compile Include="Models\CV.cs" />
     <Compile Include="Models\Erfaringer.cs" />
-    <Compile Include="Models\ErfaringKat.cs" />
-    <Compile Include="Models\Erfaringtype.cs" />
+    <Compile Include="Models\ErhvervKat.cs" />
+    <Compile Include="Models\Erhvervtype.cs" />
     <Compile Include="Models\Jobs.cs" />
     <Compile Include="Models\Jobtype.cs" />
     <Compile Include="Models\Kompetencer.cs" />
+    <Compile Include="Models\CVSprog.cs" />
     <Compile Include="Models\Sprog.cs" />
-    <Compile Include="Models\Sproget.cs" />
     <Compile Include="Models\Uddannelse.cs" />
+    <Compile Include="Models\Udkat.cs" />
     <Compile Include="Models\Udtype.cs" />
+    <Compile Include="Models\ViewModels\ErhvervKatVM.cs" />
+    <Compile Include="Models\ViewModels\UdtypeVM.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

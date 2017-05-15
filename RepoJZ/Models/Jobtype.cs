@@ -9,6 +9,6 @@ namespace RepoJZ
     public class Jobtype
     {
         public int ID { get; set; }
-        public string Type { get; set; }
+        public string Navn { get; set; }
     }
 }

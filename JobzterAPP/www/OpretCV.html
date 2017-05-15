@@ -49,15 +49,11 @@
             $(".tilfoej").click(function () {
                 $("#uddannelser").clone().appendTo(".uddannelseValg");
             });
-        });</script>
-
-
-   
-
-
+        });
+    </script>
 </head>
 <body>
-    
+
 
     <div class="container-fluid demo-page" data-role="page" id="pageOpretCV" data-dom-cache="true" data-prev="OpretBruger" data-next="OpretCVS2">
         <header class="row">
@@ -71,9 +67,9 @@
 
                 <form class="form CVform" onsubmit="return AddSpot(), false;">
 
-                    
 
-                    
+
+
                     <div class="center-block uddannelseValg">
 
                         <h4 class="text-center CVform">Uddannelse(r)</h4>
@@ -100,7 +96,7 @@
                             </select>
 
 
-                            
+
 
                             <div class="row UddDato">
                                 <div class="col-xs-5">
@@ -128,26 +124,14 @@
                         <h4 class="text-center CVform">Erhverserfaring(er)</h4>
                         <div id="erhvervs">
 
-                            <select name="select-choice-a" id="erhv" data-native-menu="false" data-overlay-theme="b">
+                            <select name="select-choice-a" id="erhv"  data-native-menu="false">
                                 <option hidden>Kategori</option>
                                 <optgroup label="Vælg job kategori">
-                                    <option value="">Service, detail, restauration</option>
-                                    <option value="">Produktion, håndværk og transport</option>
-                                    <option value="">Ledelse</option>
-                                    <option value="">Social og sundhed</option>
-                                    <option value="">Salg, marketing og kommunikation</option>
-                                    <option value="">Forskning</option>
-                                    <option value="">Undervisning og pædagogik</option>
-                                    <option value="">IT, ingeniør og energi</option>
-                                    <option value="">Kontor</option>
-                                    <option value="">Finans og økonomi</option>
-                                    <option value="">Øvrige</option>
-                                    <option value="">Ingen</option>
                                 </optgroup>
                             </select>
 
 
-                            
+
                             <div class="row ErfaringDato">
                                 <div class="col-xs-5">
                                     <div class="group">
@@ -194,6 +178,24 @@
                 </div>
             </div>
         </div>
+        <script>
+
+                $.ajax({
+                    type: 'Get',
+                    url: 'http://localhost:17821/api/App/GetErfKat/',
+                    success: function (data) {
+                        $.each(data, function (i, ErfKat) {
+                            $('select#erhv optgroup').append('<option value="' + ErfKat.ID + '">' + ErfKat.Navn + '</option>');
+                        });
+                        console.log('Ajax virker');
+                        $('select').selectmenu('refresh', true);
+                    },
+                    error: function (data) {
+                        alert("GetErfKat() - Det duer ikke!");
+                    }
+                });
+
+        </script>
     </div>
 
 

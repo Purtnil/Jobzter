@@ -13,5 +13,6 @@ namespace RepoJZ
         public DateTime StartDato { get; set; }
         public DateTime SlutDato { get; set; }
         public int UdtypeID { get; set; }
+        public bool Afsluttet { get; set; }
     }
 }
