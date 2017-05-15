@@ -14,5 +14,17 @@ namespace Jobzterdk.Controllers
         {
             return View();
         }
+        public ActionResult MereOmApp()
+        {
+            return View();
+        }
+        public ActionResult MereOmVirk()
+        {
+            return View();
+        }
+        public ActionResult OpretVirk()
+        {
+            return View();
+        }
     }
 }
