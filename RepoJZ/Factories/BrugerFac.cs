@@ -31,5 +31,29 @@ namespace RepoJZ
                 return per;
             }
         }
+
+        public void UpdateAdgangskode(string email, string adgangskode)
+        {
+            using (var CMD = new SqlCommand("update Bruger set Adgangskode=@adgangskode where Email=@email", Conn.CreateConnection()))
+            {
+                CMD.Parameters.AddWithValue("@adgangskode", adgangskode);
+                CMD.Parameters.AddWithValue("@email", email);
+
+                CMD.ExecuteNonQuery();
+                CMD.Connection.Close();
+            }
+        }
+
+        public bool UserExist(string email)
+        {
+            if (GetBy("Email", email).Count > 0) //GetBy(Feltet, Værdi) Count tæller hvor mange rækker der er i listen.
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RepoJZ
 {
-    public class Erfaringtype
+    public class Erhvervtype
     {
         public int ID { get; set; }
         public int ErKatID { get; set; }

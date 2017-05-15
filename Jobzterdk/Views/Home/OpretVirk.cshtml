@@ -1,0 +1,87 @@
+﻿
+@{
+    ViewBag.Title = "OpretVirk";
+}
+
+<div class="container containerOPRET">
+    <div class="row">
+        <form action="/Home/" method="post" enctype="multipart/form-data">
+            <div class="col-md-4 col-md-offset-1">
+                <div class="form_main">
+                    <div class="form">
+                        <h4>Firmaoplysninger</h4>
+                        <input type="text" required="" placeholder="Firmanavn" value="" name="firmanavn" class="txt">
+                        <input type="text" required="" placeholder="CVR nr." value="" name="cvr" class="txt">
+                        <input type="text" required="" placeholder="Postnummer" value="" name="post" class="txt">
+                        <input type="text" required="" placeholder="By" value="" name="sted" class="txt">
+                        <input type="text" required="" placeholder="Adresse" value="" name="adresse" class="txt">
+                        <input type="text" required="" placeholder="Kontaktperson" value="" name="kontakt" class="txt">
+                        <input type="text" required="" placeholder="Telefonnummer" value="" name="telefon" class="txt">
+                        <input type="text" required="" placeholder="Hjemmeside" value="" name="hjemmeside" class="txt">
+                        <select required="" name="stilling" class="form-control txtSelect">
+                            <option value="" disabled selected>Erhverv</option>
+                            <option value="arabic">Arabic</option>
+                            <option value="english">English</option>
+                            <option value="french">French</option>
+                            <option value="german">German</option>
+                            <option value="other">Other</option>
+                        </select>
+                        <!--<textarea placeholder="Your Message" name="mess" type="text" class="txt_3"></textarea>-->
+                        <!--<input type="submit" value="submit" name="submit" class="txt2">-->
+                        <h4>Adgangsoplysninger</h4>
+                        <input type="text" required="" placeholder="E-mail" value="" name="email" class="txt">
+                        <input type="text" required="" placeholder="Adgangskode" value="" name="adgangskode" class="txt">
+                        <input type="text" required="" placeholder="Gentag adgangskode" value="" name="gentag" class="txt">
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-md-4 col-md-offset-2">
+                <h4 class="addLogo">Tilføj logo</h4>
+                <div class="form-group">
+                    <div class="main-img-preview">
+                        <img class="img-preview img-responsive" src="/Content/GFX/JZ-logo.png" title="Preview Logo">
+                    </div>
+                    <div class="input-group">
+                        <input id="fakeUploadLogo" class="form-control fake-shadow" placeholder="Filnavn" disabled="disabled">
+                        <div class="input-group-btn">
+                            <div class="fileUpload btn btn-danger fake-shadow">
+                                <span><i class="glyphicon glyphicon-upload"></i> Upload Logo</span>
+                                <input required="" id="logo-id" name="logo" type="file" class="attachment_upload">
+                            </div>
+                        </div>
+                    </div>
+                    <p class="help-block">* Upload dit firma logo.</p>
+                    <input type="submit" value="OPRET" name="submit" class="txt2 pull-right">
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<script>
+        $(document).ready(function () {
+            var brand = document.getElementById('logo-id');
+            brand.className = 'attachment_upload';
+            brand.onchange = function () {
+                document.getElementById('fakeUploadLogo').value = this.value.substring(12);
+            };
+
+            // Source: http://stackoverflow.com/a/4459419/6396981
+            function readURL(input) {
+                if (input.files && input.files[0]) {
+                    var reader = new FileReader();
+
+                    reader.onload = function (e) {
+                        $('.img-preview').attr('src', e.target.result);
+                    };
+                    reader.readAsDataURL(input.files[0]);
+                }
+            }
+            $("#logo-id").change(function () {
+                readURL(this);
+            });
+        });
+
+</script>
+
