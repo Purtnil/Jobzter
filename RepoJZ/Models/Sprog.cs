@@ -9,7 +9,7 @@ namespace RepoJZ
     public class Sprog
     {
         public int ID { get; set; }
-        public int CVID { get; set; }
-        public int SprogetID { get; set; }
+        public string Navn { get; set; }
+        public bool Valgt { get; set; }
     }
 }

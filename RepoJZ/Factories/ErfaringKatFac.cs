@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RepoJZ
 {
-    public class ErfaringKatFac: AutoFac<ErfaringKat>
+    public class ErhvervKatFac: AutoFac<ErhvervKat>
     {
     }
 }

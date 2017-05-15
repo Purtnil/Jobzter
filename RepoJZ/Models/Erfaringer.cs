@@ -10,7 +10,7 @@ namespace RepoJZ
     {
         public int ID { get; set; }
         public int CVID { get; set; }
-        public int ErfaringtypeID { get; set; }
+        public int ErhvervtypeID { get; set; }
         public string Firmanavn { get; set; }
         public string Stilling { get; set; }
         public DateTime StartDato { get; set; }
