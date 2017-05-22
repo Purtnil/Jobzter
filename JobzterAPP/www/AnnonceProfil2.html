@@ -32,7 +32,7 @@
     <script src="js/LoginTjeck.js"></script>
     <script src="js/Main.js"></script>
     <link href="css/Main.min.css" rel="stylesheet" />
-    <title>Annonce Slider</title>
+    <title>Annonce Profil 1</title>
     <link href="css/jquery.mobile-1.4.5.min.css" rel="stylesheet" />
     <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
     <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
@@ -49,8 +49,9 @@
 <body>
 
     <div id="cont">
-        <div class="container-fluid demo-page" data-role="page" id="pageVideoCV" data-dom-cache="true" data-prev="AnnonceSlider" data-next="">
+        <div class="container-fluid demo-page" data-role="page" id="pageAnnonceProfil1" data-dom-cache="true" data-prev="AnnonceProfil1" data-next="AnnonceProfil2">
 
+            <!--NAVIGATION-->
             <nav data-role="panel" id="mypanel">
                 <div class="navProfil">
                     <img class="center-block img-circle profilPic" src="GFX/jacob-ditzel.jpg" alt="profPic" />
@@ -98,42 +99,76 @@
 
 
             </header>
+
+            <!--CONTENT-->
             <section data-role="content" class="ui-content">
                 <div class="row">
-                    <div class="col-xs-12 col-sm-offset-2">
-                        <p id="">08/05/2017</p>
+                    <div class="col-xs-6 col-sm-offset-2">
+                        <p class="AnnIndryk">Job start: 02/05/2017</p>
                     </div>
-                    <h2 class="text-center" id="">Flaskedreng</h2>
+                    <div style="text-align:right" class="col-xs-6 col-sm-offset-2">
+                        <p class="AnnIndryk">Job slut: 10/07/2017</p>
+                    </div>
+                    <h3 class="text-center" id="">Servicemedarbejder</h3>
                 </div>
                 <div class="row">
                     <div class="col-xs-12 text-center">
-                        <p id="">Føtex, Aarhus</p>
+                        <p id="">Super Brugsen | Hornslet</p>
                     </div>
                 </div>
-                <div class="row">
-                    <article class="center-block textFade">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor<br /><br /> incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,<br /><br /> quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. <!--Duis aute irure dolor in reprehenderit in voluptate <br /><br />velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint <br />occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.--></p>
-                    </article>
-                </div>
-                <div class="row">
-                    <div class="center-block annonceTjek">
-                        <ul>
-                            <li><span class="fa fa-check-square-o fa-lg text-center"></span>Under 18</li>
-                            <li><span class="fa fa-check-square-o fa-lg text-center"></span>6-8 om ugen</li>
-                            <li><span class="fa fa-check-square-o fa-lg text-center"></span>Fysisk arbejde</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="row AnnonceValg">
-                    <div class="col-xs-4 text-center">
 
-                        <a href="index.html"><span class="fa fa-times fa-3x"></span></a>
+                <div class="row kontakt">
+                    <!--<article class="col-xs-12 kontakt">-->
+                    <div class="col-xs-6">
+                        <table>
+                            <!--<tr>
+                                <td><p>Kontakt person:</p></td>
+                                <td><p>Inger Støjberg bla bla</p></td>
+                            </tr>
+                            <tr>
+                                <td><p>Telefon:</p></td>
+                                <td><p>86 32 21 22</p></td>
+                            </tr>
+                            <tr>
+                                <td><p>Email:</p></td>
+                                <td><p>ingenvennerstoejberg@trist.dk</p></td>
+                            </tr>
+                            <tr>
+                                <td><p>Adresse:</p></td>
+                                <td><p>Ingenvennersvej 17, Hornslet 8543</p></td>
+                            </tr>-->
+                            <tr>
+                                <td><p><span class="fa fa-user fa-lg"></span></p></td>
+                                <td><p>Inger Støjberg bla bla</p></td>
+                            </tr>
+                            <tr>
+                                <td><p><span class="fa fa-phone fa-lg"></span></p></td>
+                                <td><p><a href="tel:86222122">86 32 21 22</a></p></td>
+                            </tr>
+                            <tr>
+                                <td><p><span class="fa fa-envelope fa-lg"></span></p></td>
+                                <td><p>ingenvennerstoejberg@trist.dk</p></td>
+                            </tr>
+                            <tr>
+                                <td><p><span class="fa fa-map-marker fa-lg"></span></p></td>
+                                <td><p>Ingenvennersvej 17<br /> Hornslet 8543</p></td>
+                            </tr>
+                        </table>
                     </div>
-                    <div class="col-xs-4 text-center bogMaerk">
-                        <a href="index.html"><span class="fa fa-star fa-3x"></span></a>
+                    <div class="col-xs-6">
+                        <img class="img-responsive pull-right" src="GFX/Superbrugsen.png" />
                     </div>
-                    <div class="col-xs-4 text-center">
-                        <a href="AnnonceslideDUMMY.html" data-transition="slide" data-direction="forward"><span class="fa fa-heart fa-3x"></span></a>
+
+                    <!--</article>-->
+                </div>
+                <div class="row">
+                    <div class="col-xs-12">
+                        <iframe class="googleMap" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d35397.7200707299!2d10.240787874611756!3d56.32366106165333!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x464c233365f9234b%3A0xa00afcc1d510630!2s8543+Hornslet!5e0!3m2!1sda!2sdk!4v1495095479116" width="100%" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-10 col-xs-offset-1">
+                        <input data-role="none" id="ansoeg" class="button center-block loginBut" type="button" value="Ansøg" />
 
                     </div>
                 </div>
@@ -142,7 +177,11 @@
         </div>
     </div>
 
-
+    <p>
+        Kontakt person:<br /> <!--@KontaktPerson-->Inger Støjberg <br /><br />
+        Telefon:<br /> <!--@Tlf-->86 32 21 21<br /><br />
+        E-mail: <!--@Email-->ingenvennerstoejberg@trist.dk
+    </p>
 
     <script type="text/javascript" src="js/index.js"></script>
     <script type="text/javascript">
