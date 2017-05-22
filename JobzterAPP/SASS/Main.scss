@@ -109,7 +109,7 @@ input[type=text], input[type=password], select {
     border-radius: 0;
 }
 
-.loginBut, .gemBut, #btUpload {
+.loginBut, .gemBut, #btUpload, .ansoeg {
     padding: 6px;
     width: 80%;
     border: none;
@@ -126,7 +126,7 @@ input[type=text], input[type=password], select {
     margin-bottom: 5%;
 }
 
-h6 {
+.split h6 {
     width: 100%;
     text-align: center;
     border-bottom: 1px solid lightgray;
@@ -134,7 +134,7 @@ h6 {
     margin: 5% 0 13%;
 }
 
-h6 span {
+.split h6 span {
     background-color: $transparentColor;
     padding: 0 10px;
 }
@@ -542,7 +542,7 @@ input[type="date"]::-webkit-clear-button {
     margin-bottom: 10%;
     padding-bottom: 2%;
     margin-top: 7%;
-    max-height: 180px;
+    max-height: 235px;
     overflow: hidden;
     text-overflow: ellipsis;
     content: "";
@@ -589,7 +589,6 @@ input[type="date"]::-webkit-clear-button {
     color: lightgrey;
     text-shadow: $innerShadow;
     box-shadow: 0 0 18px -18px #000000;
-
 }
 
 .AnnIndryk {
@@ -597,7 +596,7 @@ input[type="date"]::-webkit-clear-button {
 }
 
 .bogMaerk {
-    padding-top: 15%;
+    padding-top: 8%;
 }
 
 .AnnonceValg {
@@ -605,7 +604,49 @@ input[type="date"]::-webkit-clear-button {
     bottom: 10px;
     right: 0;
     left: 0;
+    img{
+        width:50px
+    }
 }
+
+.aProfilTxt, .kontakt {
+    margin-top: 7%;
+
+    img {
+        height: 110px;
+        margin-bottom: 7%;
+        margin-left: 10%;
+    }
+
+    p {
+        font-size: 12px;
+    }
+}
+
+.inlineLi {
+    h6 {
+        margin-left: 5%;
+        font-weight: bold
+    }
+
+    ul li {
+        float: left;
+        font-size:12px;
+    }
+}
+
+.googleMap{
+        box-shadow: 0px 0px 2px black;
+        margin-bottom:5%;
+}
+.kontakt table
+    .fa-map-marker{
+        margin-left:3px
+    } span{
+    margin-right:10px;
+
+}
+
 
 /*.fa.insetshadowed{
     color: rgba(255, 0, 0, 0.8);

@@ -55,7 +55,7 @@ header > .ui-btn {
 
 #cont .demo-page header {
   background: -webkit-linear-gradient(top, #ff4b00 0%, #ff4b00 49%, #ff4b00 50%, #c92a29 100%);
-  min-height: 40px;
+  height: 45px;
   border: none; }
 
 #cont .demo-page .opretBruger {
