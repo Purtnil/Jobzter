@@ -6,25 +6,180 @@
     <meta name="format-detection" content="telephone=no" />
     <meta name="msapplication-tap-highlight" content="no" />
     <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+
+
+    <!--<link href="https://cdnjs.cloudflare.com/ajax/libs/jquery-mobile/1.4.5/jquery.mobile.min.css" rel="stylesheet" />-->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+    <!--<link href="css/Main.css" rel="stylesheet"/>-->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-mobile/1.4.5/jquery.mobile.min.js"></script>-->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <style>
+        a:focus, a:hover {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        #uddannelse select {
+            width: 100%;
+        }
+
+        /*#uddannelse .modal-dialog {
+            position: relative;
+            top: 50%;
+            transform: translateY(-50%)!important;
+        }*/
+
+
+        .input-text {
+            width:100%;
+            padding: 4px 8px;
+            border: none;
+            border-bottom: 1px solid #ff4b00;
+            outline: 0;
+            color: #808080;
+            text-align: center;
+            /*box-shadow: none;
+            border-radius: 0;*/
+        }
+    </style>
 </head>
 <body>
-    <form id="uddannelse">
+    <div class="container">
+        <div id="uddannelse" class="row">
+            <div class="col-xs-12 text-center">
+                <h4>Uddannelse</h4>
+            </div>
+
+            <div class="col-xs-10 col-xs-offset-1 text-center">
+                <input data-target="#modal-uddannelse" class="input-text" data-toggle="modal" type="text" value="Uddannelse/uddannelses niveau" readonly="readonly" />
+            </div>
+            <div class="modal fade" id="modal-uddannelse" role="dialog">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title text-center">Vælg kategori</h4>
+                        </div>
+                        <div class="modal-body">
+                            <div class="panel-group" id="accordion">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" data-target="#folkeskole">
+                                        <h4 class="panel-title">
+                                            Folkeskole
+                                        </h4>
+                                    </div>
+                                    <div id="folkeskole" class="panel-collapse collapse in">
+                                        <div class="panel-body">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="panel panel-default">
+                                    <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" data-target="#gymnasial">
+                                        <h4 class="panel-title">
+                                            Gymnasial Uddannelse
+                                        </h4>
+                                    </div>
+                                    <div id="gymnasial" class="panel-collapse collapse">
+                                        <div class="panel-body">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="panel panel-default">
+                                    <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" data-target="#erhverv">
+                                        <h4 class="panel-title">
+                                            Erhvervsuddannelse
+                                        </h4>
+                                    </div>
+                                    <div id="erhverv" class="panel-collapse collapse">
+                                        <div class="panel-body">
+                                        </div>
+                                    </div>
+                                </div>
+                                <br />
+                                <div class="text-center">
+                                    <button type="button" class="btn btn-default submit" value="">Vælg</button>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--<form id="uddannelse">
+        <h2 class="text-center">Vælg kategori</h2>
+        <div class="panel-group" id="accordion">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#folkeskole">Folkeskole</a>
+                    </h4>
+                </div>
+                <div id="folkeskole" class="panel-collapse collapse in">
+                    <div class="panel-body">
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#gymnasial">Gymnasial Uddannelse</a>
+                    </h4>
+                </div>
+                <div id="gymnasial" class="panel-collapse collapse">
+                    <div class="panel-body">
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#erhverv">Erhvervsuddannelse</a>
+                    </h4>
+                </div>
+                <div id="erhverv" class="panel-collapse collapse">
+                    <div class="panel-body">
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <input class="btn btn-primary btn-block" type="submit" value="Tilføj flere" />
+        <br />
+    </form>-->
+    <!--<form id="uddannelse">
         <h2>Vælg kategori</h2>
-        <div id="folkeskole">
+        <div>
             <h3>Folkeskole</h3>
 
+            <div id="folkeskole">
+
+
+            </div>
         </div>
-        <div id="gymnasial">
+
+        <div>
             <h3>Gymnasial Uddannelse</h3>
+            <div id="gymnasial">
 
+
+            </div>
         </div>
 
-        <div id="erhverv">
+        <div>
             <h3>Erhvervsuddannelse</h3>
+            <div id="erhverv">
+
+            </div>
         </div>
         <br />
         <input type="submit" value="Vælg" />
-    </form>
+    </form>-->
     <!--<form >
         <h2>Vælg kategori</h2>
         <div id="kategori">
@@ -93,7 +248,6 @@
 
         <input type="submit" value="Gem" />
     </form>-->
-
     <!--<form>
         <h4>Vælg jobtype</h4>
         <div id="jobtype">
@@ -111,8 +265,8 @@
         <input type="submit" value="Vælg" />
     </form>-->
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script>
+        var UdkatID;
         var fornavn;
         var efternavn;
         var email;
@@ -168,7 +322,7 @@
                     $('select[id^="sel"]').hide();
                 },
                 error: function (data) {
-                    alert("GetErhverv() - Det duer ikke!");
+                    console.log("GetErhverv() - Det duer ikke!");
                 }
             });
 
@@ -193,7 +347,7 @@
 
                 },
                 error: function (data) {
-                    alert("GetUdkat() - Det duer ikke!");
+                    console.log("GetUdkat() - Det duer ikke!");
                 }
             });
             //$.ajax({
@@ -220,9 +374,12 @@
                     var val = $($(this).parent().find('select')).val();
                     $(this).val(val);
                     console.log($(this).val());
+                    console.log($(this).parent().find(":selected").text())
                 }
                 else {
+
                     console.log($(this).val());
+                    console.log($(this).parent().text())
                 }
 
             });
@@ -231,6 +388,7 @@
                 var val = $(this).val();
                 $(this).parent().find('input').val(val);
                 console.log($(this).val());
+                console.log($(this).find(":selected").text())
             });
             $.ajax({
                 type: 'Get',
@@ -242,7 +400,7 @@
                     });
                 },
                 error: function (data) {
-                    alert("GetErfKat() - Det duer ikke!");
+                    console.log("GetJobtype() - Det duer ikke!");
                 }
             });
 
@@ -260,7 +418,7 @@
                     });
                 },
                 error: function (data) {
-                    alert("GetErfKat() - Det duer ikke!");
+                    console.log("GetSprog() - Det duer ikke!");
                 }
             });
 
@@ -287,25 +445,25 @@
                     });
                 },
                 error: function (data) {
-                    alert("GetErfType() - Det duer ikke!");
+                    console.log("GetErfType() - Det duer ikke!");
                 }
             });
         }
 
         function GetUdkat(data, type) {
             if (data.Count > 1) {
-                $(type).append('<div id="udkat' + data.Udkat.ID + '"><input id="inp' + data.Udkat.ID + '" type="radio" name="UdkatID" value="" >' + data.Udkat.Navn + ' <br/><select id="sel' + data.Udkat.ID + '" ></select> </div>');
+                $(type + ' .panel-body').append('<div id="udkat' + data.Udkat.ID + '"><input id="inp' + data.Udkat.ID + '" type="radio" name="UdkatID" value="" >' + data.Udkat.Navn + ' <br/><select id="sel' + data.Udkat.ID + '" ></select> </div>');
                 $('select#sel' + data.Udkat.ID).hide();
                 $.each(data.Udtype, function (i, Udtype) {
                     if (Udtype.UdkatID == data.Udkat.ID) {
-                        $(type + ' select#sel' + data.Udkat.ID).append('<option value="' + Udtype.ID + '">' + Udtype.Navn + '</option>');
+                        $(type + ' .panel-body' + ' select#sel' + data.Udkat.ID).append('<option value="' + Udtype.ID + '">' + Udtype.Navn + '</option>');
                     }
                 });
             }
             else {
                 $.each(data.Udtype, function (i, Udtype) {
                     if (Udtype.UdkatID == data.Udkat.ID) {
-                        $(type).append('<div id="udkat' + data.Udkat.ID + '"><input id="inp' + data.Udkat.ID + '" type="radio" name="UdkatID" value="' + Udtype.ID + '">' + data.Udkat.Navn + '</div>')
+                        $(type + ' .panel-body').append('<div id="udkat' + data.Udkat.ID + '"><input id="inp' + data.Udkat.ID + '" type="radio" name="UdkatID" value="' + Udtype.ID + '">' + data.Udkat.Navn + '</div>')
                         //console.log('Type Navn: ' + Udtype.Navn + ', Type ID: ' + Udtype.ID);
                     }
                 });
@@ -314,6 +472,11 @@
         }
 
 
+        $('button.submit').click(function () {
+            $('#modal-uddannelse .close').click()
+        })
+
+        $('[data-target="#modal-uddannelse"]');
     </script>
 </body>
 </html>

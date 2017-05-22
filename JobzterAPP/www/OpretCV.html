@@ -124,10 +124,9 @@
                         <h4 class="text-center CVform">Erhverserfaring</h4>
                         <div id="erhvervs">
 
-                            <select name="select-choice-a" id="erhv"  data-native-menu="false">
+                            <select name="select-choice-a" id="erhv" data-native-menu="false">
                                 <option hidden>Kategori</option>
-                                <optgroup label="Vælg job kategori">
-                                </optgroup>
+                                <optgroup label="Vælg job kategori"></optgroup>
                             </select>
 
 
@@ -178,24 +177,7 @@
                 </div>
             </div>
         </div>
-        <script>
 
-                $.ajax({
-                    type: 'Get',
-                    url: 'http://localhost:17821/api/App/GetErfKat/',
-                    success: function (data) {
-                        $.each(data, function (i, ErfKat) {
-                            $('select#erhv optgroup').append('<option value="' + ErfKat.ID + '">' + ErfKat.Navn + '</option>');
-                        });
-                        console.log('Ajax virker');
-                        $('select').selectmenu('refresh', true);
-                    },
-                    error: function (data) {
-                        alert("GetErfKat() - Det duer ikke!");
-                    }
-                });
-
-        </script>
     </div>
 
 
